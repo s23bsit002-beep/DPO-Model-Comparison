@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPO Model Comparison</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px;
+            background: #172554;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #cbd5e1;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        section {
+            background: #172033;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #60a5fa;
+        }
+
+        .models {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .model {
+            background: #25334d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .score {
+            font-size: 28px;
+            color: #34d399;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 13px;
+            border: 1px solid #475569;
+            text-align: center;
+        }
+
+        th {
+            background: #25334d;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #dbeafe;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>DPO Model Comparison</h1>
+    <p>Direct Preference Optimization Experiment</p>
+    <p>Base Model vs DPO Beta 0.1 vs DPO Beta 0.2</p>
+</header>
+
+<main>
+
+    <section>
+        <h2>Project Overview</h2>
+        <p>
+            This project explores Direct Preference Optimization (DPO)
+            using the Qwen2.5-0.5B language model. Two experiments
+            were conducted using different beta values: 0.1 and 0.2.
+        </p>
+    </section>
+
+    <section>
+        <h2>Models Used</h2>
+
+        <div class="models">
+            <div class="model">
+                <h3>Base Model</h3>
+                <p>Qwen2.5-0.5B</p>
+                <p>Original model before DPO training.</p>
+            </div>
+
+            <div class="model">
+                <h3>DPO Beta 0.1</h3>
+                <p>Beta value: 0.1</p>
+                <p>Trained using preference data.</p>
+            </div>
+
+            <div class="model">
+                <h3>DPO Beta 0.2</h3>
+                <p>Beta value: 0.2</p>
+                <p>Trained using preference data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Training Details</h2>
+        <p>Dataset: trl-lib/ultrafeedback_binarized</p>
+        <p>Base Model: Qwen/Qwen2.5-0.5B</p>
+        <p>Training examples: 500 for each experiment</p>
+        <p>Training steps: 50</p>
+    </section>
+
+    <section>
+        <h2>Training Loss Comparison</h2>
+
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Training Loss</th>
+            </tr>
+            <tr>
+                <td>DPO Beta 0.1</td>
+                <td>0.682726</td>
+            </tr>
+            <tr>
+                <td>DPO Beta 0.2</td>
+                <td>0.679262</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Manual Evaluation Results</h2>
+
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Average Score</th>
+            </tr>
+            <tr>
+                <td>Base Model</td>
+                <td>3.25</td>
+            </tr>
+            <tr>
+                <td>DPO Beta 0.1</td>
+                <td>3.25</td>
+            </tr>
+            <tr>
+                <td>DPO Beta 0.2</td>
+                <td>4.00</td>
+            </tr>
+        </table>
+
+        <p>
+            DPO Beta 0.2 achieved the highest average score
+            in this manual evaluation.
+        </p>
+    </section>
+
+    <section>
+        <h2>Conclusion</h2>
+        <p>
+            The experiment shows how DPO can be used to train
+            language models using preferred and rejected responses.
+            Among the tested models, DPO Beta 0.2 received the
+            highest manual evaluation score. Further testing is
+            required to confirm this result.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    DPO Model Comparison | Academic Project
+</footer>
+
+</body>
+</html>
